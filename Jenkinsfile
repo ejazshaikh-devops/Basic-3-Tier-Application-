@@ -2,8 +2,9 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven3'      // Jenkins > Global Tool Config > name it "Maven3"
-        nodejs 'Node20'     // Jenkins > Global Tool Config > name it "Node20"
+        jdk 'jdk'
+        maven 'Maven3'      
+        nodejs 'Node20'   
     }
 
     environment {
@@ -73,7 +74,7 @@ pipeline {
                 sh 'docker rm -f attendance-backend attendance-frontend attendance-db || true'
                 sh 'docker network create attendance-net || true'
 
-                // DB tier - local MariaDB container, no external RDS
+                // DB tier - local MariaDB container
                 sh '''
                     docker run -d --name attendance-db \
                       --network attendance-net \
@@ -84,7 +85,7 @@ pipeline {
                       -p 3306:3306 \
                       mariadb:10.11
                 '''
-                sh 'sleep 20' // basic wait for MariaDB to accept connections
+                sh 'sleep 20' //wait time for db
 
                 sh """
                     docker run -d --name attendance-backend \
