@@ -1,0 +1,222 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 25%, #fbc2eb 50%, #fdcbf1 75%, #a6c1ee 100%);
+  background-size: 300% 300%;
+  animation: gradientShift 18s ease infinite;
+  color: #1f2340;
+  overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,.5), transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(255,182,255,.35), transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(150,200,255,.35), transparent 45%);
+  z-index: -1;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 0 70px;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-bottom: 36px;
+  background: linear-gradient(90deg, #6a5ae0, #d64bd6, #ff7ab6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 30px rgba(255,255,255,.4);
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 26px;
+  box-shadow: 0 8px 32px rgba(80, 60, 150, 0.18);
+  transition: .3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(80, 60, 150, 0.25);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #4a3c8c;
+}
+
+.teacher-card {
+  background: rgba(255, 255, 255, 0.4);
+  border-left: 5px solid #a97bff;
+}
+
+.teacher-card p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #34305a;
+}
+
+input {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 6px 8px 6px 0;
+  font-size: 15px;
+  color: #2a2650;
+  outline: none;
+  transition: .2s;
+}
+
+input::placeholder {
+  color: #6a628f;
+}
+
+input:focus {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 0 3px rgba(169, 123, 255, 0.35);
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #7b6cf6, #d64bd6);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(123, 108, 246, 0.45);
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 24px rgba(123, 108, 246, 0.55);
+}
+
+.toggle-btn {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  color: #4a3c8c;
+  border-radius: 30px;
+  padding: 10px 22px;
+  margin: 8px 10px 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.75);
+  transform: translateY(-2px);
+}
+
+.student-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.student-card {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+  transition: .2s ease;
+}
+
+.student-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.student-card strong {
+  color: #3a2f6e;
+  font-size: 15px;
+}
+
+.student-card span {
+  font-size: 13px;
+  color: #6a628f;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+thead th {
+  text-align: left;
+  padding: 12px 10px;
+  color: #4a3c8c;
+  font-weight: 700;
+  border-bottom: 2px solid rgba(122, 108, 246, 0.35);
+}
+
+tbody td {
+  padding: 10px;
+  border-bottom: 1px solid rgba(122, 108, 246, 0.12);
+}
+
+tbody tr:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.btn.present {
+  background: linear-gradient(135deg, #4fd694, #22b573);
+  color: #fff;
+}
+
+.btn.absent {
+  background: linear-gradient(135deg, #ff8a8a, #ff5b5b);
+  color: #fff;
+}
+
+.btn.delete {
+  background: rgba(255, 91, 91, 0.15);
+  color: #d13c3c;
+  border: 1px solid rgba(255, 91, 91, 0.4);
+}
+
+.btn.delete:hover {
+  background: rgba(255, 91, 91, 0.3);
+}
