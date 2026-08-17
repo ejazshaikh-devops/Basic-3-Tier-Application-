@@ -8,6 +8,7 @@ pipeline {
     }
 
     environment {
+        PATH = "/usr/local/bin:${env.PATH}"
         DOCKERHUB_USER  = 'your-dockerhub-username'
         BACKEND_IMAGE   = "${DOCKERHUB_USER}/attendance-backend"
         FRONTEND_IMAGE  = "${DOCKERHUB_USER}/attendance-frontend"
