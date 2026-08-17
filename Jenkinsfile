@@ -96,7 +96,7 @@ pipeline {
                       -e DB_NAME=attendance \
                       -e DB_USER=attendance_user \
                       -e DB_PASS=attendance_pass \
-                      -p 8080:8080 \
+                      -p 9090:8080 \
                       ${BACKEND_IMAGE}:${IMAGE_TAG}
                 """
 
